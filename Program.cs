@@ -6,6 +6,7 @@ namespace console_programlama
     {
         static void Main(string[] args)
         {
+            #region Variables
             byte b = 5;
             sbyte sb = 5;
 
@@ -65,9 +66,79 @@ namespace console_programlama
             Console.WriteLine(dateTime2);
             string hour = DateTime.Now.ToString("HH:mm");
             Console.WriteLine(hour);
+            #endregion
+
+            #region Operators
+
+            // Assignment Operators
+            int a = 5;
+            int e = 4;
+            a = a+4;
+            Console.WriteLine(a);
+            a += e;
+            Console.WriteLine(a);
+            a *= e;
+            Console.WriteLine(a);
+            a -= e;
+            Console.WriteLine(a);
+            a /= e;
+            Console.WriteLine(a);
+
+            //////////////////////////
+
+            // Logical Operators
+
+            bool isSuccess = true;
+            bool isCompleted = false;
+
+            if(isSuccess && isCompleted)
+            Console.WriteLine("Perfect");
+            if(isSuccess || isCompleted)
+            Console.WriteLine("Great");
+            if(isSuccess && !isCompleted)
+            Console.WriteLine("Fine");
+
+            ///////////////////////////
+
+            //Comparison Operators
+
+            int numberA = 3;
+            int numberB = 4;
+            bool checkNumber = numberA<numberB;
+            Console.WriteLine(checkNumber);
+
+            checkNumber = numberA>numberB;
+            Console.WriteLine(checkNumber);
+            checkNumber = numberA>=numberB;
+            Console.WriteLine(checkNumber);
+            checkNumber = numberA<=numberB;
+            Console.WriteLine(checkNumber);
+            checkNumber = numberA==numberB;
+            Console.WriteLine(checkNumber);
+            checkNumber = numberA!=numberB;
+            Console.WriteLine(checkNumber);
+
+            // Arithmetic Operators
+            int num1 = 6;
+            int num2 = 2;
+            int result = num1/num2;
+            Console.WriteLine(result);
+            result = num1 + num2;
+            Console.WriteLine(result);
+            result = num1 - num2;
+            Console.WriteLine(result);
+            result = num1++;
+            Console.WriteLine(num1);
+
+            int y = 20;
+            int x = 3;
+            int result2 = y%x;
+            Console.WriteLine(result2);
 
 
+            //////////////////////////////
 
+            #endregion
 
         }
     }
