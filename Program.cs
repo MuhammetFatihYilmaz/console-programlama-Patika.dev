@@ -197,10 +197,48 @@ namespace console_programlama
             Console.WriteLine("ff: " + ff);
 
             //
-            
+
             #endregion
 
+            TryCatchFunc();
 
+
+        }
+
+        public static void TryCatchFunc()
+        {
+            try
+            {
+                //Console.WriteLine("Bir sayi giriniz : ");
+                //int a = int.Parse(Console.ReadLine());
+                //int a = int.Parse(null);
+                //int a = int.Parse("test");
+                int a = int.Parse("200000000000");
+            }
+            //catch(Exception ex)
+            //{
+            //   Console.WriteLine("Bir hata olustu : " + ex.Message.ToString());
+            //}
+            catch(ArgumentNullException ex)
+            {
+                Console.WriteLine("Bos deger girdiniz.");
+                Console.WriteLine(ex);
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine("Veri tipi uygun değil.");
+                Console.WriteLine(ex);
+            }
+            catch(OverflowException ex)
+            {
+                Console.WriteLine("Çok küçük yada çok büyük bir değer girdiniz.");
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Console.WriteLine("İşlem tamamlandı.");
+            }
+            
         }
     }
 }
