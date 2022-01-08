@@ -140,6 +140,67 @@ namespace console_programlama
 
             #endregion
 
+            //////////////////////////////
+
+            #region Type Conversion
+
+            //Implicit Conversion
+
+            byte by = 2;
+            short sh = 10;
+            ushort ush = 15;
+
+            int res = by+sh+ush;
+            Console.WriteLine("res: " + res);
+
+            long lg = res;
+            Console.WriteLine("lg: " + lg);
+
+            float fl = lg;
+            Console.WriteLine("fl: " + lg);
+
+            string st = "Patika.de";
+            char chr = 'v';
+
+            object rs = st+chr;
+            Console.WriteLine(rs);
+
+            //Explicit Conversion
+
+            float w = 3.3f;
+            int itg = (int)w;
+            Console.WriteLine("itg: " + itg);
+
+            int itg2 =  5;
+            byte byt = (byte)itg2; 
+            Console.WriteLine("byt: " + itg2);
+
+            //
+
+            // ToString
+            int yy = 20;
+            string zz = yy.ToString();
+            Console.WriteLine("zz: " + zz);
+
+            //
+
+            // Convert
+            string ss = "10";
+            int tt = Convert.ToInt32(ss);
+            Console.WriteLine("ss: " + ss);
+
+            //
+
+            // Parse
+            string ff = "10.3";
+            double dd = double.Parse(ff);
+            Console.WriteLine("ff: " + ff);
+
+            //
+            
+            #endregion
+
+
         }
     }
 }
