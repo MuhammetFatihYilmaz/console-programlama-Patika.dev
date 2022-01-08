@@ -203,6 +203,7 @@ namespace console_programlama
             TryCatchFunc();
             IfElseIfFunc();
             SwitchCaseFunc();
+            ForLoopFunc();
 
 
         }
@@ -312,5 +313,46 @@ namespace console_programlama
             }
 
         }
+    
+        public static void ForLoopFunc()
+        {
+            for (int i = 1; i <=20; i++)
+            {
+                if(i%2==1)
+                    Console.WriteLine(i);
+                
+            }
+
+
+            int totalOddNumber = 0;
+            int totalEvenNumber = 0;
+            for (int i = 1; i <=20; i++)
+            {
+                if(i%2==1)
+                    totalOddNumber += i;
+                else
+                    totalEvenNumber += i;
+            }
+
+            Console.WriteLine("Toplam tek sayi : " + totalOddNumber);
+            Console.WriteLine("Toplam çift sayi : " + totalEvenNumber);
+
+            for (int i = 0; i <= 5; i++)
+            {
+                if(i==3)
+                    break;
+                Console.WriteLine(i);
+            }
+
+            for (int i = 0; i <= 5; i++)
+            {
+                if(i==2)
+                    continue;
+                Console.WriteLine(i);
+            }
+
+
+        }
+
     }
 }
