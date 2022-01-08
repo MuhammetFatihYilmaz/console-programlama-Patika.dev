@@ -204,6 +204,7 @@ namespace console_programlama
             IfElseIfFunc();
             SwitchCaseFunc();
             ForLoopFunc();
+            WhileForEachFunc();
 
 
         }
@@ -354,5 +355,35 @@ namespace console_programlama
 
         }
 
+        public static void WhileForEachFunc()
+        {
+            int number = 5;
+            int counter = 1;
+            int totalNumber = 0;
+
+            while (counter<=number)
+            {
+                 totalNumber += counter;
+                 counter++;
+            }
+
+            Console.WriteLine("Sayının ortalaması : " + totalNumber/number);
+
+            char character = 'a';
+            while (character<='z')
+            {
+                Console.Write(character);
+                character++;
+            }
+
+            Console.WriteLine();
+
+            string[] items = {"itemA", "itemB", "itemC", "itemD"};
+            foreach (var item in items)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    
     }
 }
