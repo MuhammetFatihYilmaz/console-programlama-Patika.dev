@@ -208,6 +208,23 @@ namespace console_programlama
             ArrayFunc();
             ArrayMethodsFunc();
 
+            Console.WriteLine("**** Addition ****");
+
+            int additionA = 3;
+            int additionB = 2;
+            Console.WriteLine($"Toplam Sayı : {additionA+additionB}");
+
+            int additionTotal = AdditionFunc(additionA,additionB);
+            Console.WriteLine($"Toplam Sayı : {additionTotal}");
+
+            Methods _methodsCls = new Methods();
+            _methodsCls.PrintToScreenFunc($"Toplam Sayı : {additionTotal}");
+
+            int plusAddition = _methodsCls.PlusAndAddition(ref additionA, ref additionB);
+            _methodsCls.PrintToScreenFunc($"Toplam Sayı : {plusAddition}");
+            Console.WriteLine($"Toplam Sayı : {additionA+additionB}");
+
+
 
         }
 
@@ -467,6 +484,26 @@ namespace console_programlama
 
         }
 
-    
+        public static int AdditionFunc(int a, int b)
+        {
+            return a+b;
+        }
+
+
+    }
+
+    class Methods
+    {
+        public void PrintToScreenFunc(string data)
+        {
+            Console.WriteLine(data);
+        }
+
+        public int PlusAndAddition(ref int e, ref int d)
+        {
+            e+=1;
+            d+=1;
+            return e+d;
+        }
     }
 }
