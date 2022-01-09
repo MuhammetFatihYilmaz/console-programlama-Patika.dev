@@ -205,6 +205,7 @@ namespace console_programlama
             SwitchCaseFunc();
             ForLoopFunc();
             WhileForEachFunc();
+            ArrayFunc();
 
 
         }
@@ -384,6 +385,42 @@ namespace console_programlama
                 Console.WriteLine(item);
             }
         }
+    
+        public static void ArrayFunc()
+        {
+            string[] animals = {"Kedi", "Köpek", "Kuş",};
+            Console.WriteLine(animals[2]);
+
+            string[] colors = new string[4];
+            colors[0] = "Mavi";
+            Console.WriteLine(colors[0]);
+
+            int[] numbers;
+            numbers = new int[3];
+            numbers[0] = 10;
+            Console.WriteLine(numbers[0]);
+
+            //////////////
+            Console.Write("Lütfen dizinin uzunluğu için bir sayı giriniz : ");
+            int arrayLength = int.Parse(Console.ReadLine());
+            int[] array = new int[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+            {
+                Console.Write("Lütfen dizinin {0}. elemanı için bir sayı giriniz : ", i+1);
+                array[i] = int.Parse(Console.ReadLine());
+            }
+
+            int totalNumber = 0;
+            foreach (var number in array)
+            {
+                totalNumber += number;
+            }
+
+            Console.WriteLine("Sayıların ortalaması : " + totalNumber/arrayLength);
+
+        }
+
     
     }
 }
