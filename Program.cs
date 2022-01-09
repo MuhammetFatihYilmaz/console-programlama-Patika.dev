@@ -206,6 +206,7 @@ namespace console_programlama
             ForLoopFunc();
             WhileForEachFunc();
             ArrayFunc();
+            ArrayMethodsFunc();
 
 
         }
@@ -418,6 +419,51 @@ namespace console_programlama
             }
 
             Console.WriteLine("Sayıların ortalaması : " + totalNumber/arrayLength);
+
+        }
+
+        public static void ArrayMethodsFunc()
+        {
+            Console.WriteLine("**** Sırasız Dize ****");
+            int[] numbers = {5,2,7,3,33,20,86};
+
+            foreach (var number in numbers)
+                Console.WriteLine(number);
+            
+
+            Console.WriteLine("**** Sıralı Dize ****");
+            Array.Sort(numbers);
+
+            foreach (var number in numbers)
+                Console.WriteLine(number);
+            
+
+            Console.WriteLine("**** Array.Clear() ****");
+
+            Array.Clear(numbers,3,2);
+            foreach (var number in numbers)
+                Console.WriteLine(number);
+
+            Console.WriteLine("**** Array.Reverse() ****");
+
+            Array.Reverse(numbers);
+            foreach (var number in numbers)
+                Console.WriteLine(number);
+
+            Console.WriteLine("**** Array.IndexOf() ****");
+            Console.WriteLine(Array.IndexOf(numbers,3));
+
+            Console.WriteLine("**** Array.Resize() ****");
+            Array.Resize<int>(ref numbers,8);
+            numbers[7] = 101;
+            foreach (var number in numbers)
+                Console.WriteLine(number);
+
+
+
+
+
+
 
         }
 
