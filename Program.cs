@@ -205,7 +205,7 @@ namespace console_programlama
             SwitchCaseFunc();
             ForLoopFunc();
             WhileForEachFunc();
-            ArrayFunc();
+            //ArrayFunc();
             ArrayMethodsFunc();
 
             Console.WriteLine("**** Addition ****");
@@ -220,9 +220,41 @@ namespace console_programlama
             Methods _methodsCls = new Methods();
             _methodsCls.PrintToScreenFunc($"Toplam Sayı : {additionTotal}");
 
-            int plusAddition = _methodsCls.PlusAndAddition(ref additionA, ref additionB);
+            int plusAddition = _methodsCls.PlusAndAdditionFunc(ref additionA, ref additionB);
             _methodsCls.PrintToScreenFunc($"Toplam Sayı : {plusAddition}");
             Console.WriteLine($"Toplam Sayı : {additionA+additionB}");
+
+            Console.WriteLine("**** Methods Overloading ****");
+
+            string outString = "999";
+            int outNumber;
+            bool outNumberResult = int.TryParse(outString,out outNumber);
+
+            if(outNumberResult)
+            {
+                Console.WriteLine("Başarılı.");
+                Console.WriteLine(outNumber);
+            }
+            else
+            {
+                Console.WriteLine("Başarısız.");
+            }
+
+            int addNumberResult;
+
+            _methodsCls.OutPlusAndAdditionFunc(4,5,out addNumberResult);
+            Console.WriteLine($"Toplam Sayı : {addNumberResult}");
+
+            string overLoadString1 = "Patika.dev";
+            string overLoadString2 = "Patika";
+            string overLoadString3 = ".dev";
+            int overLoadInt = 3;
+
+            _methodsCls.OverloadPrintToScreenFunc(overLoadString1);
+            _methodsCls.OverloadPrintToScreenFunc(overLoadString2, overLoadString3);
+            _methodsCls.OverloadPrintToScreenFunc(overLoadInt);
+
+
 
 
 
@@ -499,11 +531,31 @@ namespace console_programlama
             Console.WriteLine(data);
         }
 
-        public int PlusAndAddition(ref int e, ref int d)
+        public int PlusAndAdditionFunc(ref int e, ref int d)
         {
             e+=1;
             d+=1;
             return e+d;
+        }
+
+        public void OutPlusAndAdditionFunc(int a, int b, out int result)
+        {
+            result = a+b;
+        }
+
+        public void OverloadPrintToScreenFunc(string data)
+        {
+            Console.WriteLine(data);
+        }
+
+        public void OverloadPrintToScreenFunc(int data)
+        {
+            Console.WriteLine(data);
+        }
+
+        public void OverloadPrintToScreenFunc(string data, string data2)
+        {
+            Console.WriteLine(data+data2);
         }
     }
 }
