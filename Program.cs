@@ -205,7 +205,7 @@ namespace console_programlama
             SwitchCaseFunc();
             ForLoopFunc();
             WhileForEachFunc();
-            //ArrayFunc();
+            ArrayFunc();
             ArrayMethodsFunc();
 
             Console.WriteLine("**** Addition ****");
@@ -253,6 +253,25 @@ namespace console_programlama
             _methodsCls.OverloadPrintToScreenFunc(overLoadString1);
             _methodsCls.OverloadPrintToScreenFunc(overLoadString2, overLoadString3);
             _methodsCls.OverloadPrintToScreenFunc(overLoadInt);
+
+            Console.WriteLine("**** Recursive ****");
+
+            Console.WriteLine(_methodsCls.RecursiveFunc(3,4));
+
+            Console.WriteLine("**** Extension ****");
+            string name = "Patika .dev";
+            int[] unsortedArray = {3,1,17,6,39,22,4,8};
+            int isNumberEven = 5;
+
+            Console.WriteLine(name.CheckSpaces());
+            Console.WriteLine(name.RemoveSpaces());
+            Console.WriteLine(name.MakeUpperCase());
+            Console.WriteLine(name.MakeLowerCase());
+
+            unsortedArray.SortArray();
+            unsortedArray.PrintToScreenIntArray();
+
+            Console.WriteLine(isNumberEven.IsEven());
 
 
 
@@ -524,6 +543,52 @@ namespace console_programlama
 
     }
 
+    public static class Extension
+    {
+        public static bool CheckSpaces(this string param)
+        {
+            return param.Contains(" ");
+        }
+
+        public static string RemoveSpaces(this string param)
+        {
+            string[] array = param.Split(" ");
+            
+            return string.Join("",array);
+        }
+
+        public static string MakeUpperCase(this string param)
+        {
+            return param.ToUpper();
+        }
+
+        public static string MakeLowerCase(this string param)
+        {
+            return param.ToLower();
+        }
+
+        public static int[] SortArray(this int[] param)
+        {
+            Array.Sort(param);
+            return param;
+        }
+
+        public static void PrintToScreenIntArray(this int[] param)
+        {
+            foreach (int item in param)
+            {
+                Console.WriteLine(item);
+            }
+            
+        }
+
+        public static bool IsEven(this int param)
+        {
+            return param%2 == 0;
+        }
+
+    }
+
     class Methods
     {
         public void PrintToScreenFunc(string data)
@@ -556,6 +621,18 @@ namespace console_programlama
         public void OverloadPrintToScreenFunc(string data, string data2)
         {
             Console.WriteLine(data+data2);
+        }
+
+        public int RecursiveFunc(int number, int exponents)
+        {
+            if(exponents<2)
+            return number;
+            return RecursiveFunc(number,exponents-1) * number;
+            //RecursiveFunc(3,4)
+            //RecursiveFunc(3,3)= 3
+            //RecursiveFunc(3,2)= 3*3
+            //RecursiveFunc(3,1)= 3*3*3
+            //3*3*3*3 = 3^4
         }
     }
 }
