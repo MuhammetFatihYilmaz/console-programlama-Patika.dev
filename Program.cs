@@ -273,7 +273,9 @@ namespace console_programlama
 
             Console.WriteLine(isNumberEven.IsEven());
 
+            Console.WriteLine(_methodsCls.factorial(3));
 
+            _methodsCls.StringMethod();
 
 
 
@@ -540,7 +542,7 @@ namespace console_programlama
             return a+b;
         }
 
-
+        
     }
 
     public static class Extension
@@ -630,9 +632,93 @@ namespace console_programlama
             return RecursiveFunc(number,exponents-1) * number;
             //RecursiveFunc(3,4)
             //RecursiveFunc(3,3)= 3
-            //RecursiveFunc(3,2)= 3*3
-            //RecursiveFunc(3,1)= 3*3*3
+            //RecursiveFunc(3,2)= 3*3 
+            //RecursiveFunc(3,1)= 3*3*3 
             //3*3*3*3 = 3^4
         }
+
+        public int factorial(int n)
+        {
+            if(n==1)
+            return 1;
+            return factorial(n-1)*n;
+
+            //n==4
+            //(4-1)*4 = 3*4 = 12
+            //(3-1)*4 = 2*4 = 8
+            //(2-1)*4 = 1*4 = 4
+            //12+8+4 = 24
+        }
+
+        public void StringMethod()
+        {
+            string sentence1 = "Dersimiz CSharp. Hoşgeldiniz";
+            string sentence2 = "CSharp";
+
+            Console.WriteLine($"Birinci cümlenin karakter uzunluğu : {sentence1.Length}");
+            
+            Console.WriteLine("**** ToLower, ToUpper ****");
+            //ToLower, ToUpper
+            Console.WriteLine(sentence1.ToLower());
+            Console.WriteLine(sentence1.ToUpper());
+
+            Console.WriteLine("**** Concat ****");
+            //Concat
+            Console.WriteLine(string.Concat(sentence2," dersleri"));
+
+            Console.WriteLine("**** Compare, CompareTo ****");
+            //Compare, CompareTo
+            Console.WriteLine(sentence1.CompareTo(sentence2));
+            Console.WriteLine(string.Compare(sentence1,sentence2,true));
+            Console.WriteLine(string.Compare(sentence1,sentence2,false));
+
+            Console.WriteLine("**** Contains ****");
+            //Contains
+            Console.WriteLine(sentence1.Contains("Dersimiz"));
+            Console.WriteLine(sentence1.EndsWith("Hoşgeldiniz"));
+            Console.WriteLine(sentence2.StartsWith("CS"));
+
+            Console.WriteLine("**** IndexOf ****");
+            //IndexOf
+            Console.WriteLine(sentence1.IndexOf("CS"));
+            Console.WriteLine(sentence1.IndexOf("Patika"));
+            Console.WriteLine(sentence1.LastIndexOf("z"));
+
+            Console.WriteLine("**** Insert ****");
+            //Insert
+            Console.WriteLine(sentence1.Insert(0,"Merhaba. "));
+
+            Console.WriteLine("**** PadLeft, PadRight ****");
+            //PadLeft, PadRight
+            Console.WriteLine(sentence1 + sentence2.PadLeft(30));
+            Console.WriteLine(sentence1 + sentence2.PadRight(30,'-'));
+            Console.WriteLine(sentence1.PadLeft(50) + sentence2);
+            Console.WriteLine(sentence1.PadRight(50,'*') + sentence2);
+
+            Console.WriteLine("**** Remove ****");
+            //Remove
+            Console.WriteLine(sentence1.Remove(5));
+            Console.WriteLine(sentence1.Remove(5,5));
+            Console.WriteLine(sentence1.Remove(0,1));
+
+            Console.WriteLine("**** Replace ****");
+            //Replace
+            Console.WriteLine(sentence1.Replace("CSharp","C#"));
+            Console.WriteLine(sentence1.Replace(" ","*"));
+
+            Console.WriteLine("**** Split ****");
+            //Split
+            Console.WriteLine(sentence1.Split(' ')[2]);
+
+            Console.WriteLine("**** SubString ****");
+            //SubString
+            Console.WriteLine(sentence1.Substring(4));
+            Console.WriteLine(sentence1.Substring(0,5));
+
+
+
+        }
+
+
     }
 }
