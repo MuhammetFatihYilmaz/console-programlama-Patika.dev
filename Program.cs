@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace console_programlama
 {
@@ -277,6 +278,8 @@ namespace console_programlama
             _methodsCls.StringMethod();
             _methodsCls.DateTimeMethods();
 
+            GenericCollections();
+
 
 
         }
@@ -542,7 +545,108 @@ namespace console_programlama
             return a+b;
         }
 
-        
+        public static void GenericCollections()
+        {
+            Console.WriteLine("**** Int Listesi ****");
+            List<int> numberList = new List<int>();
+            numberList.Add(4);
+            numberList.Add(2);
+            numberList.Add(7);
+            numberList.Add(6);
+            numberList.Add(10);
+            numberList.Add(19);
+            numberList.Add(12);
+
+            Console.WriteLine("**** String Listesi ****");
+            List<string> stringList = new List<string>();
+            stringList.Add("Mavi");
+            stringList.Add("Kırmızı");
+            stringList.Add("Yeşil");
+            stringList.Add("Mor");
+            stringList.Add("Sarı");
+
+
+            //Count
+            Console.WriteLine("**** Count ****");
+            Console.WriteLine($"Int listesinin eleman sayısı : {numberList.Count}");
+            Console.WriteLine($"String listesinin eleman sayısı : {stringList.Count}");
+
+            //ForEach ve List.ForEach
+            foreach (var item in numberList)
+            {
+                Console.WriteLine(item);
+            }
+
+            stringList.ForEach(item => Console.WriteLine(item));
+
+            //Listeden eleman çıkarma
+            Console.WriteLine("**** Remove ****");
+            numberList.Remove(10);
+            numberList.ForEach(item => Console.WriteLine(item));
+
+            Console.WriteLine("**** RemoveAt ****");
+            stringList.RemoveAt(2);
+            stringList.ForEach(item => Console.WriteLine(item));
+
+            //Liste içerisinde Arama
+            Console.WriteLine("**** Contains ****");
+            if(stringList.Contains("Mor"))
+                Console.WriteLine("Listerde mor renk var");
+
+            //Eleman ile indexe erişme
+            Console.WriteLine("**** BinarySearch ****");
+            Console.WriteLine(stringList.BinarySearch("Sarı"));
+
+            //Diziyi liste çevirme
+            Console.WriteLine("**** Array'den Listeye ****");
+            string[] stringArray = {"Aslan", "Kedi", "Köpek", "At"};
+            List<string> animalList = new List<string>(stringArray);
+            animalList.ForEach(item => Console.WriteLine($"Hayvan listesi : {item}"));
+
+            //Clear
+            animalList.Clear();
+            
+            //List içerisinde nesne tutma
+            Console.WriteLine("**** List<Class> ****");
+            List<Users> userList = new List<Users>();
+            Users user1 = new Users(); 
+            user1.Name = "Ahmet";
+            user1.SurName = "Veli";
+            user1.Age = 23;
+
+            Users user2 = new Users(); 
+            user2.Name = "Mehmet";
+            user2.SurName = "Çalışkan";
+            user2.Age = 25;
+
+            userList.Add(user1);
+            userList.Add(user2);
+
+            foreach (Users user in userList)
+            {
+                Console.WriteLine($"Kullanıcının adı : {user.Name}");
+                Console.WriteLine($"Kullanıcının soyadı : {user.SurName}");
+                Console.WriteLine($"Kullanıcının yaşı : {user.Age}");
+            }
+
+            List<Users> newUserList = new List<Users>();
+            newUserList.Add(new Users(){
+                Name = "Mert",
+                SurName = "Kaya",
+                Age = 26
+                
+            });
+                
+            
+
+
+            
+
+
+
+        }
+
+
     }
 
     public static class Extension
@@ -785,4 +889,17 @@ namespace console_programlama
 
 
     }
+
+    public class Users
+    {
+        private string name;
+        private string surName;
+
+        private int age;
+
+        public string Name { get => name; set => name = value; }
+        public string SurName { get => surName; set => surName = value; }
+        public int Age { get => age; set => age = value; }
+    }
+
 }
