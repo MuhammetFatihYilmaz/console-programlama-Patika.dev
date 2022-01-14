@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace console_programlama
@@ -278,7 +279,8 @@ namespace console_programlama
             _methodsCls.StringMethod();
             _methodsCls.DateTimeMethods();
 
-            GenericCollections();
+            CollectionsGenericFunc();
+            CollectionsArrayListFunc();
 
 
 
@@ -545,7 +547,7 @@ namespace console_programlama
             return a+b;
         }
 
-        public static void GenericCollections()
+        public static void CollectionsGenericFunc()
         {
             Console.WriteLine("**** Int Listesi ****");
             List<int> numberList = new List<int>();
@@ -636,11 +638,70 @@ namespace console_programlama
                 Age = 26
                 
             });
-                
             
+        }
+
+        public static void CollectionsArrayListFunc()
+        {
+            Console.WriteLine("**** ArrayList ****");
+            ArrayList aList= new ArrayList();
+
+            aList.Add("Hakan");
+            aList.Add(2);
+            aList.Add(true);
+            aList.Add('c');
+
+            foreach (var item in aList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("**** AddRange ****");
+            //AddRange
+            string[] colorList = {"sarı", "siyah", "mor", "eflatun"};
+            List<int> numberList= new List<int>(){1,2,7,10,3,6,92,5};
+            aList.AddRange(colorList);
+            aList.AddRange(numberList);
+
+            foreach (var item in aList)
+            {
+                Console.WriteLine(item);
+            }
 
 
-            
+            Console.WriteLine("**** Sort ****");
+            //Sort
+            ArrayList bList = new ArrayList();
+            bList.AddRange(numberList);
+            bList.Sort();
+
+            foreach (var item in bList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("**** Binary Search ****");
+            //BinarySearch
+            Console.WriteLine(bList.BinarySearch(2));
+
+            Console.WriteLine("**** Reverse ****");
+            //Reverse
+            bList.Reverse();
+
+            foreach (var item in bList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("**** Clear ****");
+            //Clear
+            bList.Clear();
+
+            foreach (var item in bList)
+            {
+                Console.WriteLine(item);
+            }
+
 
 
 
