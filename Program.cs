@@ -281,6 +281,7 @@ namespace console_programlama
 
             CollectionsGenericFunc();
             CollectionsArrayListFunc();
+            DictionaryListFunc();
 
 
 
@@ -708,6 +709,60 @@ namespace console_programlama
         }
 
 
+        public static void DictionaryListFunc()
+        {
+            Dictionary<int,string> usersDictionaryList = new Dictionary<int, string>();
+
+            usersDictionaryList.Add(10,"Ahmet Yılmaz");
+            usersDictionaryList.Add(12,"Ömer Yılmaz");
+            usersDictionaryList.Add(18,"Veli Kaya");
+            usersDictionaryList.Add(20,"Ayşe Hakan");
+
+            Console.WriteLine(usersDictionaryList[12]);
+
+            foreach (var item in usersDictionaryList)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+            Console.WriteLine("**** Dictionary-Count ****");
+            //Count
+            Console.WriteLine(usersDictionaryList.Count);
+
+            Console.WriteLine("**** Dictionary-Contains ****");
+            //Contains
+            Console.WriteLine(usersDictionaryList[12].Contains("Ahmet Yılmaz"));
+            Console.WriteLine(usersDictionaryList.ContainsKey(12));
+            Console.WriteLine(usersDictionaryList.ContainsValue("Murat Han"));
+
+            Console.WriteLine("**** Dictionary-Remove ****");
+            //Remove
+            usersDictionaryList.Remove(18);
+            foreach (var item in usersDictionaryList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("**** Dictionary-Keys ****");
+            //Keys
+            foreach (var item in usersDictionaryList.Keys)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("**** Dictionary-Values ****");
+            //Keys
+            foreach (var item in usersDictionaryList.Values)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+        }
+   
     }
 
     public static class Extension
