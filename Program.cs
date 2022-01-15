@@ -282,7 +282,22 @@ namespace console_programlama
             CollectionsGenericFunc();
             CollectionsArrayListFunc();
             DictionaryListFunc();
+            //
+            Employee employee1 = new Employee();
+            employee1.Name = "Ayşe";
+            employee1.Surname = "Kara";
+            employee1.No = 123456789;
+            employee1.Department = "İnsan Kaynakları";
+            employee1.ShowEmployeeInformation();
 
+            Console.WriteLine("**************");
+
+            Employee employee2 = new Employee();
+            employee2.Name = "Ahmet";
+            employee2.Surname = "Arda";
+            employee2.No = 987654321;
+            employee2.Department = "Satın Alma";
+            employee2.ShowEmployeeInformation();
 
 
         }
@@ -1017,5 +1032,22 @@ namespace console_programlama
         public string SurName { get => surName; set => surName = value; }
         public int Age { get => age; set => age = value; }
     }
+
+    class Employee
+    {
+        public string Name;
+        public string Surname;
+        public int No;
+        public string Department;
+
+        public void ShowEmployeeInformation()
+        {
+            Console.WriteLine("Çalışanın adı : {0}",Name);
+            Console.WriteLine("Çalışanın soyadı : {0}",Surname);
+            Console.WriteLine("Çalışanın numarası : {0}",No);
+            Console.WriteLine("Çalışanın departmanı : {0}",Department);
+        }
+    }
+
 
 }
