@@ -283,21 +283,21 @@ namespace console_programlama
             CollectionsArrayListFunc();
             DictionaryListFunc();
             //
-            Employee employee1 = new Employee();
-            employee1.Name = "Ayşe";
-            employee1.Surname = "Kara";
-            employee1.No = 123456789;
-            employee1.Department = "İnsan Kaynakları";
+            Console.WriteLine("**** Çalışan 1 ****");
+            Employee employee1 = new Employee("Ayşe", "Kara", 123456789, "İnsan Kaynakları");
             employee1.ShowEmployeeInformation();
 
-            Console.WriteLine("**************");
-
+            Console.WriteLine("**** Çalışan 2 ****");
             Employee employee2 = new Employee();
             employee2.Name = "Ahmet";
             employee2.Surname = "Arda";
             employee2.No = 987654321;
             employee2.Department = "Satın Alma";
             employee2.ShowEmployeeInformation();
+
+            Console.WriteLine("**** Çalışan 3 ****");
+            Employee employee3 = new Employee("Mehmet", "Can");
+            employee3.ShowEmployeeInformation();
 
 
         }
@@ -1039,6 +1039,25 @@ namespace console_programlama
         public string Surname;
         public int No;
         public string Department;
+
+        public Employee(string name, string surname, int no, string department)
+        {
+            this.Name = name;
+            this.Surname = surname;
+            this.No = no;
+            this.Department = department;
+        }
+
+        public Employee(string name, string surname)
+        {
+            this.Name = name;
+            this.Surname = surname;
+        }
+
+        public Employee()
+        {
+
+        }
 
         public void ShowEmployeeInformation()
         {
