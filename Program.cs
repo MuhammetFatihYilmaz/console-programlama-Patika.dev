@@ -298,6 +298,26 @@ namespace console_programlama
             Console.WriteLine("**** Çalışan 3 ****");
             Employee employee3 = new Employee("Mehmet", "Can");
             employee3.ShowEmployeeInformation();
+            ////////////////////////////////////////////////////
+            Console.WriteLine("**** Öğrenci 1 ****");
+            Students student1 = new Students("Veli","Çalışkan", 124, 3);
+            student1.ShowStudentInformations();
+
+            student1.PassTheClass();
+            student1.ShowStudentInformations();
+            //
+            Console.WriteLine("**** Öğrenci 2 ****");
+            Students student2 = new Students();
+            student2.Name = "Hakan";
+            student2.Surname = "Mert";
+            student2.No = 176;
+            student2.ClassNo = 1;
+            student2.ShowStudentInformations();
+            
+            student2.DecreaseTheClass();
+            student2.ShowStudentInformations();
+            student2.DecreaseTheClass();
+            student2.ShowStudentInformations();
 
 
         }
@@ -1066,6 +1086,61 @@ namespace console_programlama
             Console.WriteLine("Çalışanın numarası : {0}",No);
             Console.WriteLine("Çalışanın departmanı : {0}",Department);
         }
+    }
+
+    class Students
+    {
+        private string name;
+        private string surname;
+        private int no;
+        private int classNo;
+
+        public string Name { get => name; set => name = value; }
+        public string Surname { get => surname; set => surname = value; }
+        public int No { get => no; set => no = value; }
+        public int ClassNo 
+        { 
+            get => classNo;
+            set 
+            {
+                if(value<1)
+                {
+                    Console.WriteLine("Hatalı giriş yaptınız.");
+                    classNo = 1;
+                }
+                else
+                    classNo = value;
+            }  
+        }
+
+        public Students(string name, string surname, int no, int classno)
+        {
+            Name = name;
+            Surname = surname;
+            No = no;
+            ClassNo = classno;
+        }
+
+        public Students(){}
+
+        public void ShowStudentInformations()
+        {
+            Console.WriteLine("Adı: {0}", Name);
+            Console.WriteLine("Soyadı: {0}", Surname);
+            Console.WriteLine("Numarası: {0}", No);
+            Console.WriteLine("Sınıfı: {0}", ClassNo);
+        }
+
+        public void PassTheClass()
+        {
+            ClassNo = ClassNo+1;
+        }
+
+        public void DecreaseTheClass()
+        {
+            ClassNo = ClassNo-1;
+        }
+
     }
 
 
