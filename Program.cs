@@ -343,7 +343,19 @@ namespace console_programlama
             //
             Rectangle_Struct rectangle_struct2 = new Rectangle_Struct(3,4);
             Console.WriteLine("Struct alan hesabı : {0}", rectangle_struct2.AreaOfTheRectangle());
-
+            //
+            Console.WriteLine("**** Günler ****");
+            Console.WriteLine(Days.Pazartesi);
+            Console.WriteLine((int)Days.Pazartesi);
+            //
+            Console.WriteLine("**** Hava Durumu ****");
+            int wea = 26;
+            if(wea<=(int)Weather.Cold)
+                Console.WriteLine("Hava soğuk.");
+            else if(wea> (int)Weather.Cold && wea<=(int)Weather.Normal)
+                Console.WriteLine("Hava iyi.");
+            else if(wea>=(int)Weather.Hot)
+                Console.WriteLine("Hava sıcak.");
 
 
 
@@ -1248,5 +1260,24 @@ namespace console_programlama
 
     }
 
+    enum Days
+    {
+        Pazartesi = 1,
+        Salı,
+        Çarşamba,
+        Perlembe,
+        Cuma,
+        Cumartesi,
+        Pazar
+
+    }
+
+    enum Weather
+    {
+        Hot = 25,
+        Normal = 18,
+        Cold = 5
+
+    }
 
 }
