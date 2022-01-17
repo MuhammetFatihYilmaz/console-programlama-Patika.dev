@@ -331,6 +331,21 @@ namespace console_programlama
             Console.WriteLine("Toplama işlemi sonucu : {0}", MathOperations.MathAddition(100,200));
             Console.WriteLine("**** Statik Çıkarma ****");
             Console.WriteLine("Çıkarma işlemi sonucu : {0}", MathOperations.MathSubtraction(250,200));
+            //
+            Console.WriteLine("**** Class ****");
+            Rectangle rectangle = new Rectangle();
+            Console.WriteLine("Class alan hesabı : {0}", rectangle.AreaOfTheRectangle()); 
+            //
+            Rectangle_Struct rectangle_struct1;
+            rectangle_struct1.shortEdge = 3;
+            rectangle_struct1.longEdge = 4;
+            Console.WriteLine("Struct alan hesabı : {0}", rectangle_struct1.AreaOfTheRectangle());
+            //
+            Rectangle_Struct rectangle_struct2 = new Rectangle_Struct(3,4);
+            Console.WriteLine("Struct alan hesabı : {0}", rectangle_struct2.AreaOfTheRectangle());
+
+
+
 
 
 
@@ -1194,5 +1209,44 @@ namespace console_programlama
             return number1-number2;
         } 
     }
+
+    class Rectangle
+    {
+        public int shortEdge;
+
+        public int longEdge;
+
+
+        public Rectangle()
+        {
+            shortEdge = 3;
+            longEdge = 4;
+        }
+
+        public long AreaOfTheRectangle()
+        {
+            return this.shortEdge*this.longEdge;
+        }
+    }
+
+    struct Rectangle_Struct
+    {
+        public int shortEdge;
+
+        public int longEdge;
+
+        public Rectangle_Struct(int shortedge, int longedge)
+        {
+            this.shortEdge = shortedge;
+            this.longEdge = longedge;
+        }
+
+        public long AreaOfTheRectangle()
+        {
+            return this.shortEdge*this.longEdge;
+        }
+
+    }
+
 
 }
