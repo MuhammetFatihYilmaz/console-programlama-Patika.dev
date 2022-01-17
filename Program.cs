@@ -318,6 +318,21 @@ namespace console_programlama
             student2.ShowStudentInformations();
             student2.DecreaseTheClass();
             student2.ShowStudentInformations();
+            //
+            Console.WriteLine("**** Çalışan Sayısı ****");
+            Console.WriteLine("Çalışan sayısı: {0}", Staff.StaffCount);
+            Staff staff1 = new Staff("Ayşe", "Arda", "İK");
+            Console.WriteLine("Çalışan sayısı: {0}", Staff.StaffCount);
+            Staff staff2 = new Staff("Mehmet", "Kar", "İK");
+            Staff staff3 = new Staff("Hasan", "Toprak", "İK");
+            Console.WriteLine("Çalışan sayısı: {0}", Staff.StaffCount);
+            //
+            Console.WriteLine("**** Statik Toplama ****");
+            Console.WriteLine("Toplama işlemi sonucu : {0}", MathOperations.MathAddition(100,200));
+            Console.WriteLine("**** Statik Çıkarma ****");
+            Console.WriteLine("Çıkarma işlemi sonucu : {0}", MathOperations.MathSubtraction(250,200));
+
+
 
 
         }
@@ -1143,5 +1158,41 @@ namespace console_programlama
 
     }
 
+    class Staff
+    {
+        private static int staffCount;
+
+        private string Name;
+        private string Surname;
+        private string Department;
+
+        public static int StaffCount { get => staffCount; }
+
+        static Staff()
+        {
+            staffCount = 0;
+        }
+
+        public Staff(string name, string surname, string department)
+        {
+            this.Name = name;
+            this.Surname = surname;
+            this.Department = department;
+            staffCount++;
+        }
+    }
+
+    static class MathOperations
+    {
+        public static long MathAddition(int number1,int number2)
+        {
+            return number1+number2;
+        } 
+
+        public static long MathSubtraction (int number1,int number2)
+        {
+            return number1-number2;
+        } 
+    }
 
 }
